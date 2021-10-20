@@ -36,5 +36,5 @@ jobs:
 workflows:
   clean-build-test: 
     jobs:
-      - build-and-test
+      - build-and-compile
       - test
