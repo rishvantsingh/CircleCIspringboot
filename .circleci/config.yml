@@ -1,0 +1,40 @@
+version: 2.1
+
+jobs:
+  build-and-compile:
+    
+    docker:
+      - image: cimg/openjdk:11.0
+   
+    steps:
+     
+      - checkout
+     
+      - run:
+          name: clean
+          command: mvn clean
+     
+      - run:
+          name: compile
+          command: mvn compile
+
+  test:
+    
+    docker:
+      - image: cimg/openjdk:11.0
+   
+    steps:
+     
+      - checkout
+     
+      
+      - run:
+          name: test
+          command: mvn test
+
+
+workflows:
+  clean-build-test: 
+    jobs:
+      - build-and-test
+      - test
