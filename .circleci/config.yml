@@ -36,5 +36,6 @@ jobs:
 workflows:
   clean-build-test: 
     jobs:
-      - build-and-compile
       - test
+         requires:
+           - build-and-compile
